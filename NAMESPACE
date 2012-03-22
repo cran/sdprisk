@@ -1,0 +1,39 @@
+import(stats)
+import(utils)
+
+import(polynom)
+importFrom(rootSolve, uniroot.all)
+importFrom(numDeriv, grad)
+
+useDynLib(sdprisk, rpbounds)
+
+S3method(mean, claiminfo)
+S3method(is.hypoexp, claiminfo)
+S3method(is.hypoexp, riskproc)
+
+export(
+    adjcoef,
+    boundsRuinprob,
+    claiminfo,
+    dhypoexp,
+    fftRuinprob,
+    hypoexpRuinprob,
+    hypoexpSensitivity,
+    hypoexpTvaru,
+    hypoexpVaru,
+    is.claiminfo,
+    is.hypoexp,
+    is.riskproc,
+    mgfhypoexp,
+    phypoexp,
+    rhypoexp,
+    riskproc,
+    ruinprob,
+    saddlepointRuinprob,
+    saddlepointSensitivity,
+    saddlepointTvaru,
+    saddlepointVaru,
+    sensitivity,
+    tvaru,
+    varu
+)

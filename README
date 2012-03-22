@@ -1,0 +1,11 @@
+Known Issues and Limitations
+----------------------------
+
+    The approximation of the probability of ruin using the method of upper and
+lower bounds does not provide the correct results if the integrated tail area
+distribution function is not supplied.  More specifically, the less accurate
+bounds avoiding integration are not yet correctly implemented.
+
+    Models without oscillation are currently not supported.  At the moment,
+there is no guarantee that the functions provided in this package provide
+sensible output (or, for that matter, any output at all) if variance = 0.
