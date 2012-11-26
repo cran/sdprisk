@@ -11,7 +11,7 @@ tvaru <- function(process, method = c('saddlepoint', 'hypoexp'), ...) {
     }
 
     switch(method,
-        `saddlepoint` = saddlepointTvaru(process, ...),
-        `hypoexp`     = hypoexpTvaru(process, ...)
+        saddlepoint = saddlepointTvaru(process, ...),
+        hypoexp     = hypoexpTvaru(process, ...)
     )
 }

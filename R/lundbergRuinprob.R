@@ -1,26 +1,26 @@
 lundbergRuinprob <- function(process, use.factor = FALSE) {
     stopifnot(is.logical(use.factor))
 
-    .adjcoef <- adjcoef(process)
-    if (is.null(.adjcoef)) {
+    myadj <- adjcoef(process)
+    if (is.null(myadj)) {
         stop('Unable to compute the adjustment coefficient.')
     }
 
-    .const <- 1
+    const <- 1.0
     if (use.factor) {
-        try({
-            .pdf <- process$claims$pdf            
-        }, silent = TRUE)
+        .pdf <- tryCatch(expr  = process$claims$pdf,
+                         error = function(.error) NULL)
+
         if (!is.null(.pdf)) {
-            .const <- get('p', process) / (.adjcoef * (get('q', process) / mean(process$claim) *
+            const <- process[['p']] / (myadj * (process[['q']] / mean(process[['claims']]) *
                       stats::integrate(f = function(.x) {
-                                            .res <- .pdf(.x) * .x * exp(.x * .adjcoef)
-                                            .res[which(is.nan(.res))] <- 0
+                                            .res <- .pdf(.x) * .x * exp(.x * myadj)
+                                            .res[which(is.nan(.res))] <- 0.0
                                             return(.res)
                                        },
-                                       lower = 0,
+                                       lower = 0.0,
                                        upper = Inf)$value
-                      + 1 / get('zeta', process)
+                      + 1.0 / process[['zeta']]
                       ))
         } else {
             warning('Cannot compute the coefficient without the claim density.\n',
@@ -28,9 +28,7 @@ lundbergRuinprob <- function(process, use.factor = FALSE) {
         }
     }
 
-    .rp <- function(x) {
-        return(.const * exp(-x * .adjcoef))
-    }
-
-    return(structure(.rp, C = .rp, r = .adjcoef))
+    return(structure(function(x) const * exp(-x * myadj),
+                     C = const,
+                     r = myadj))
 }

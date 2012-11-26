@@ -19,7 +19,7 @@ ruinprob(process, method = c("saddlepoint", "fft", "bounds", "hypoexp", "lundber
 boundsRuinprob(process, interval, maxreserve, richardson = TRUE, use.splines = FALSE)
 fftRuinprob(process, interval, maxreserve, n, use.splines = FALSE)
 hypoexpRuinprob(process)
-saddlepointRuinprob(process, jensen = FALSE, normalize = FALSE)
+saddlepointRuinprob(process, jensen = FALSE, normalize = TRUE)
 }
 
 \arguments{
@@ -38,9 +38,8 @@ saddlepointRuinprob(process, jensen = FALSE, normalize = FALSE)
   \item{jensen}{logical; if \code{TRUE}, the formulae of \cite{Jensen (1992)}
       are used instead of the ones by \cite{Lugannani and Rice (1980)} and
       \cite{Daniels (1954)} (see references).}
-  \item{normalize}{logical; if \code{TRUE}, the saddlepoint approximation to the
-      density is re-normalized such that it integrates to 1; only used if
-      \code{jensen} is \code{FALSE}.}
+  \item{normalize}{logical; if \code{TRUE}, the saddlepoint approximations based
+      on densities are re-normalized such that those densities integrate to 1.}
   \item{\dots}{further arguments that are passed on to \code{boundsRuinprob},
       \code{fftRuinprob}, \code{hypoexpRuinprob} or \code{saddlepointRuinprob},
       depending on the value of \code{method}.}

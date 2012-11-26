@@ -1,5 +1,14 @@
-dhypoexp <- function(x, rate = 1, log = FALSE) {
-    res <- drop(outer(x, rate, stats::dexp) %*% ratetoalpha(rate))
+dhypoexp <- function(x, rate = 1.0, log = FALSE) {
+    stopifnot(is.numeric(x),
+              all(is.finite(rate)),
+              is.logical(log))
+
+    res <- drop(tcrossprod(outer(X   = x,
+                                 Y   = rate,
+                                 FUN = stats::dexp,
+                                 log = FALSE),
+                           t(ratetoalpha(rate))))
+
     if (log) {
         return(log(res))
     } else {

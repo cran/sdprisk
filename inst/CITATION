@@ -1,17 +1,15 @@
 citEntry(
-    header = paste("To cite package", sQuote("sdprisk"), "in publications use:"),
-    entry = "Article",
-    title = "Measures of risk based on the compound Poisson risk process with diffusion and efficient computational methods",
-    author = personList(
-        person("Benjamin", "Baumgartner"),
-        person("Riccardo", "Gatto")
-    ),
-    journal = NA_character_,
-    volume = NA_integer_,
-    number = NA_integer_,
-    year = NA_integer_,
-    pages = NA_character_,
-    textVersion = "Baumgartner, B. and Gatto, R. (2012). Measures of risk based on the
-    compound Poisson risk process with diffusion and efficient computational methods.
-    To appear."
+    header      = paste("To cite package", sQuote("sdprisk"), "in publications use:"),
+    entry       = "Article",
+    title       = "Value at ruin and tail value at ruin of the compound Poisson risk process with diffusion and efficient computational methods",
+    author      = personList(person("Benjamin", "Baumgartner"),
+                             person("Riccardo", "Gatto")),
+    journal     = NA_character_,
+    volume      = NA_integer_,
+    number      = NA_integer_,
+    year        = NA_integer_,
+    pages       = NA_character_,
+    textVersion = "Baumgartner, B. and Gatto, R. (to appear).  Value at ruin and tail value
+                   at ruin of the compound Poisson risk process with diffusion and efficient
+                   computational methods."
 )

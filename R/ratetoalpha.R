@@ -1,9 +1,9 @@
 ratetoalpha <- function(rate) {
-    stopifnot(is.numeric(rate), all(!is.na(rate)))
+    stopifnot(is.numeric(rate), all(is.finite(rate)))
 
-    sapply(seq.int(along.with = rate),
-           function(i) {
+    vapply(X   = seq_along(rate),
+           FUN = function(i) {
                prod(rate[-i] / (rate[-i] - rate[i]))
-           }
-    )
+           },
+           FUN.VALUE = numeric(1L))
 }

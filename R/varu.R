@@ -11,7 +11,7 @@ varu <- function(process, method = c('saddlepoint', 'hypoexp'), ...) {
     }
 
     switch(method,
-        `saddlepoint` = saddlepointVaru(process, ...),
-        `hypoexp`     = hypoexpVaru(process, ...)
+        saddlepoint = saddlepointVaru(process, ...),
+        hypoexp     = hypoexpVaru(process, ...)
     )
 }

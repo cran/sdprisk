@@ -1,5 +1,4 @@
 mean.claiminfo <- function(x, ...) {
-    mymu <- NA_real_
-    try(mymu <- get('mu', x), silent = TRUE)
-    return(mymu)
+    tryCatch(expr  = x[['mu']],
+             error = function(.err) NA_real_)
 }

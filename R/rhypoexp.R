@@ -1,7 +1,9 @@
-rhypoexp <- function(n = 1, rate = 1) {
-    nlen <- length(n)
-    if (nlen > 1) {
+rhypoexp <- function(n = 1L, rate = 1.0) {
+    if ((nlen <- length(n)) > 1L) {
         n <- nlen
     }
-    rowSums(cbind(sapply(rate, stats::rexp, n = n)))
+    rowSums(vapply(X         = rate,
+                   FUN       = stats::rexp,
+                   FUN.VALUE = numeric(n),
+                   n         = n))
 }

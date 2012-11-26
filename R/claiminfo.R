@@ -1,42 +1,53 @@
 claiminfo <- function(...) {
     arglist <- list(...)
 
-    if (length(arglist) == 1 && is.riskproc(arglist[[1]])) {
+    if (length(arglist) == 1L && is.riskproc(arglist[[1L]])) {
         ## If we have a riskproc object, just return its claiminfo part
-        return(get('claims', arglist[[1]]))
+        return(arglist[[1L]][['claims']])
     } else {
-        if ("hypoexp" %in% names(arglist) && is.numeric(arglist$hypoexp$rates)) {
+        if ('hypoexp' %in% names(arglist) && is.numeric(arglist[['hypoexp']][['rates']])) {
 
             arglist <- within(arglist, {
-                mu <- sum(1 / arglist$hypoexp$rates)
-                hypoexp$coef <- ratetoalpha(arglist$hypoexp$rates)
+                mu           <- sum(1.0 / arglist[['hypoexp']][['rates']])
+                hypoexp$coef <- ratetoalpha(arglist[['hypoexp']][['rates']])
 
                 mgf <- function(x) {
-                    mgfhypoexp(x, rate = arglist$hypoexp$rates, difforder = 0)
+                    mgfhypoexp(x         = x,
+                               rate      = arglist[['hypoexp']][['rates']],
+                               difforder = 0L)
                 }
 
                 mgf.d1 <- function(x) {
-                    mgfhypoexp(x, rate = arglist$hypoexp$rates, difforder = 1)
+                    mgfhypoexp(x         = x,
+                               rate      = arglist[['hypoexp']][['rates']],
+                               difforder = 1L)
                 }
 
                 mgf.d2 <- function(x) {
-                    mgfhypoexp(x, rate = arglist$hypoexp$rates, difforder = 2)
+                    mgfhypoexp(x         = x,
+                               rate      = arglist[['hypoexp']][['rates']],
+                               difforder = 2L)
                 }
 
                 cdf <- function(x) {
-                    phypoexp(x, rate = arglist$hypoexp$rates)
+                    phypoexp(q    = x,
+                             rate = arglist[['hypoexp']][['rates']])
                 }
 
                 cdf.tailarea <- function(x) {
-                    phypoexp(x, rate = arglist$hypoexp$rates, tailarea = TRUE)
+                    phypoexp(q        = x,
+                             rate     = arglist[['hypoexp']][['rates']],
+                             tailarea = TRUE)
                 }
 
                 pdf <- function(x) {
-                    dhypoexp(x, rate = arglist$hypoexp$rates)
+                    dhypoexp(x    = x,
+                             rate = arglist[['hypoexp']][['rates']])
                 }
             })
         }
 
-        return(structure(arglist, class = c('claiminfo', 'list')))
+        return(structure(.Data = arglist,
+                         class = c('claiminfo', 'list')))
     }
 }

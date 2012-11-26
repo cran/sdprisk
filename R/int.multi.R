@@ -1,8 +1,10 @@
 int.multi <- function(f, nodes, ...) {
-    unname(unlist(mapply(
-        FUN      = stats::integrate,
-        lower    = utils::head(nodes, -1),
-        upper    = utils::tail(nodes, -1),
-        MoreArgs = list(f = f, ...)
-    )[1, ]))
+    vapply(X         = mapply(FUN      = stats::integrate,
+                              lower    = utils::head(nodes, -1L),
+                              upper    = utils::tail(nodes, -1L),
+                              MoreArgs = list(f = match.fun(f), ...),
+                              SIMPLIFY = FALSE),
+           FUN       = `[[`,
+           FUN.VALUE = numeric(1L),
+           index     = 'value')
 }

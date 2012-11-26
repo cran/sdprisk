@@ -1,7 +1,7 @@
 import(stats)
 import(utils)
 
-import(polynom)
+import(PolynomF)
 importFrom(rootSolve, uniroot.all)
 importFrom(numDeriv, grad)
 

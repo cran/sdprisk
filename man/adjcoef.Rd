@@ -4,7 +4,7 @@
 \title{Adjustment Coefficient}
 
 \description{
-    Computes the adjustment coefficient of a risk process with Gaussian
+    Returns the adjustment coefficient of a risk process with Gaussian
     diffusion.
 }
 
@@ -25,22 +25,8 @@ adjcoef(process)
 
 \value{
     The adjustment coefficient of the risk process represented by
-    \code{process}.
-
-    If \code{process} already contains the adjustment coefficient -- regardless
-    of whether it has originally been supplied at the time of construction or of
-    whether it stems from a previous run --, then this value is returned without
-    repeating the computation.  Re-computation can be forced by manually
-    removing the list element \code{"adjcoef"} of \code{process} or setting it
-    to \code{NULL}.
-}
-
-\note{
-    As a side effect, the object that has been passed as \code{process} argument
-    is modified in the global environment such that it contains the adjustment
-    coefficient (as a list element named \code{"adjcoef"}).  The rationale
-    behind this is avoiding repeated calculations, because other functions, such
-    as \code{\link{tvaru}}, may require the adjustment coefficient.
+    \code{process}.  If the adjustment coefficient does not exist or cannot be
+    computed for any reason, \code{NULL} is returned instead.
 }
 
 \seealso{
@@ -49,7 +35,7 @@ adjcoef(process)
 }
 
 \examples{
-## Setting up a risk process with hypo-exponentially distrubuted claims
+## Setting up a risk process with hypo-exponentially distributed claims
 myprocess <- riskproc(
     claims   = claiminfo(hypoexp = list(rates = c(1, 10))),
     premium  = 2,
@@ -57,11 +43,8 @@ myprocess <- riskproc(
     variance = 0.4
 )
 
-## Compute the adjustment coefficient
+## Return the adjustment coefficient
 adjcoef(myprocess)
-
-## Note that the computed information is now stored inside the process object
-myprocess$adjcoef
 }
 
 \keyword{utilities}

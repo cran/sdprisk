@@ -1,18 +1,12 @@
-# is.hypoexp <- function(x) {
-#     if (is.riskproc(x)) {
-#         Recall(get('claims', x))
-#     } else {
-#         stopifnot(is.claiminfo(x))
-#         return('hypoexp' %in% names(x))
-#     }
-# }
-
 is.hypoexp <- function(x) {
     UseMethod('is.hypoexp')
 }
 
 is.hypoexp.default <- function(x) {
-    'hypoexp' %in% names(as.list(x))
+    if (!is.list(x)) {
+        x <- as.list(x)
+    }
+    'hypoexp' %in% names(x)
 }
 
 is.hypoexp.claiminfo <- function(x) {
@@ -20,5 +14,5 @@ is.hypoexp.claiminfo <- function(x) {
 }
 
 is.hypoexp.riskproc <- function(x) {
-    is.hypoexp(get('claims', x))
+    is.hypoexp(x[['claims']])
 }

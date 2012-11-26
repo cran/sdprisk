@@ -1,11 +1,18 @@
-phypoexp <- function(q, rate = 1, lower.tail = TRUE, log.p = FALSE, tailarea = FALSE) {
-    mycoef <- ratetoalpha(rate)
+phypoexp <- function(q, rate = 1.0, lower.tail = TRUE, log.p = FALSE, tailarea = FALSE) {
+
     if (tailarea) {
-        mycoef <- mycoef / (rate * sum(1 / rate))
+        mycoef <- ratetoalpha(rate) / (rate * sum(1.0 / rate))
+    } else {
+        mycoef <- ratetoalpha(rate)
     }
-    res <- drop(
-        outer(q, rate, stats::pexp, lower.tail = lower.tail, log.p = FALSE) %*% mycoef
-    )
+
+    res <- drop(tcrossprod(outer(X          = q,
+                                 Y          = rate,
+                                 FUN        = stats::pexp,
+                                 lower.tail = lower.tail,
+                                 log.p      = FALSE),
+                           t(mycoef)))
+
     if (log.p) {
         return(log(res))
     } else {
