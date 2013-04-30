@@ -1,7 +1,7 @@
 hypoexpRuinprob <- function(process) {
     stopifnot(is.hypoexp(process[['claims']]))
 
-    mypoly.factors <- PolynomF::as.polylist(lapply(X   = process[['claims']][['hypoexp']][['rates']],
+    mypoly.factors <- PolynomF::as.polylist(lapply(X   = process[[c('claims', 'hypoexp', 'rates')]],
                                                    FUN = function(arg) {
                                                        c(arg, -1.0)
                                                    }))
@@ -12,13 +12,13 @@ hypoexpRuinprob <- function(process) {
     mypoly.lhs <- process[['zeta']] * process[['q']] * sum(PolynomF::as.polylist(
         lapply(X   = seq_along(mypoly.factors),
                FUN = function(index) {
-                   process[['claims']][['hypoexp']][['coef']][index] * prod(mypoly.factors[-index])
+                   process[[c('claims', 'hypoexp', 'coef')]][index] * prod(mypoly.factors[-index])
                })
     ))
 
     r <- PolynomF:::solve.polynom(mypoly.lhs - mypoly.rhs)
 
-    const <- solve(a = rbind(outer(X   = process[['claims']][['hypoexp']][['rates']],
+    const <- solve(a = rbind(outer(X   = process[[c('claims', 'hypoexp', 'rates')]],
                                    Y   = r,
                                    FUN = function(.rates, .r) {
                                        .rates / (.rates - .r)
@@ -35,10 +35,10 @@ hypoexpRuinprob <- function(process) {
         }
     }
 
-    return(structure(list(psi   = genexp(const,  r, 1.0),
-                          psi.1 = genexp(const1, r, 1.0),
-                          psi.2 = genexp(const2, r, 1.0),
-                          dens  = genexp(const * r, r, Inf)),
+    return(structure(.Data       = list(psi   = genexp(const,  r, 1.0),
+                                        psi.1 = genexp(const1, r, 1.0),
+                                        psi.2 = genexp(const2, r, 1.0),
+                                        dens  = genexp(const * r, r, Inf)),
                      compmethod  = 'hypoexp',
                      riskproc    = process,
                      parameters  = list(NULL),

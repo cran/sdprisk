@@ -42,7 +42,8 @@ saddlepointVaru <- function(process, type = 2L) {
                 for(i in 0L:n) {
                     x <- phi(x, prob, i)
                 }
-                return(structure(KL.d1(x), saddlepoint = x))
+                return(structure(.Data       = KL.d1(x),
+                                 saddlepoint = x))
             }
         }
     )

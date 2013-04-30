@@ -1,7 +1,7 @@
 Package: sdprisk
 Type: Package
-Version: 0.9-727
-Date: 2012-11-26
+Version: 1.0-0
+Date: 2013-04-30
 Title: Measures of Risk for the Compound Poisson Risk Process with
         Diffusion
 Author: Benjamin Baumgartner, Riccardo Gatto
@@ -17,6 +17,7 @@ Description: This package provides saddlepoint approximations to some
         random variables with different rate parameters).
 License: AGPL-3
 Imports: numDeriv, PolynomF, rootSolve
-Packaged: 2012-11-26 09:58:52 UTC; baumgrt
+Packaged: 2013-04-30 18:07:59 UTC; benjamin
+NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2012-11-26 12:40:06
+Date/Publication: 2013-05-01 07:12:57

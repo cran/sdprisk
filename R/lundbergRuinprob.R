@@ -28,7 +28,7 @@ lundbergRuinprob <- function(process, use.factor = FALSE) {
         }
     }
 
-    return(structure(function(x) const * exp(-x * myadj),
-                     C = const,
-                     r = myadj))
+    return(structure(.Data = function(x) const * exp(-x * myadj),
+                     C     = const,
+                     r     = myadj))
 }

@@ -98,9 +98,9 @@ saddlepointRuinprob <- function(process, jensen = FALSE, normalize = TRUE) {
         }
     }
 
-    return(structure(list(psi     = psi,
-                          psi.1   = psi.1,
-                          psi.2   = psi.2),
+    return(structure(.Data       = list(psi     = psi,
+                                        psi.1   = psi.1,
+                                        psi.2   = psi.2),
                      compmethod  = 'saddlepoint',
                      riskproc    = process,
                      parameters  = list(jensen    = jensen,

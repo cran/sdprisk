@@ -44,7 +44,7 @@ fftRuinprob <- function(process, interval, maxreserve, n, use.splines = FALSE) {
     }
 
     b.fft <- fft(diff(vapply(X         = x,
-                             FUN       = process[['claims']][['cdf.tailarea']],
+                             FUN       = process[[c('claims', 'cdf.tailarea')]],
                              FUN.VALUE = numeric(1L))))
 
     w <- Re(fft(z       = p * a.fft / (1 - q * a.fft * b.fft),
@@ -68,9 +68,9 @@ fftRuinprob <- function(process, interval, maxreserve, n, use.splines = FALSE) {
         psi.1 <- approxfun(x, y1, rule = 2L)
     }
 
-    return(structure(list(psi   = psi,
-                          psi.1 = psi.1,
-                          psi.2 = function(x) psi(x) - psi.1(x)),
+    return(structure(.Data       = list(psi   = psi,
+                                        psi.1 = psi.1,
+                                        psi.2 = function(x) psi(x) - psi.1(x)),
                      compmethod  = 'fft',
                      riskproc    = process,
                      parameters  = list(interval    = interval,

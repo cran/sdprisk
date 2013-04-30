@@ -153,26 +153,24 @@ riskproc <- function(claims, premium, freq, variance) {
 
     }
 
-    structure(
-        list(premium   = premium,
-             freq      = freq,
-             variance  = variance,
-             diffusion = (variance != 0.0),
-             p         = p,
-             q         = q,
-             beta      = premium / (freq * mu) - 1.0,
-             zeta      = zeta,
-             KL        = KL,
-             KL.d1     = KL.d1,
-             KL.d2     = KL.d2,
-             KL.osc    = KL.osc,
-             ML.osc    = ML.osc,
-             vx        = vx,
-             rv        = rv,
-             sv        = sv,
-             zv        = zv,
-             claims    = claims,
-             adjcoef   = adjcoef),
-        class = c('riskproc', 'list')
-    )
+    structure(.Data = list(premium   = premium,
+                           freq      = freq,
+                           variance  = variance,
+                           diffusion = (variance != 0.0),
+                           p         = p,
+                           q         = q,
+                           beta      = premium / (freq * mu) - 1.0,
+                           zeta      = zeta,
+                           KL        = KL,
+                           KL.d1     = KL.d1,
+                           KL.d2     = KL.d2,
+                           KL.osc    = KL.osc,
+                           ML.osc    = ML.osc,
+                           vx        = vx,
+                           rv        = rv,
+                           sv        = sv,
+                           zv        = zv,
+                           claims    = claims,
+                           adjcoef   = adjcoef),
+              class = c('riskproc', 'list'))
 }
