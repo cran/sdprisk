@@ -6,10 +6,10 @@ saddlepointVaru <- function(process, type = 2L) {
             vx  <- process[['vx']]
             phi <- function(x, prob, i) {
                 if (i == 0L) {
-                    return(stats::qexp(prob, adjcoef(process), lower.tail = FALSE))
+                    return(qexp(prob, adjcoef(process), lower.tail = FALSE))
                 } else {
                     v <- vx(x)
-                    return(x + 0.5 * (stats::qnorm(prob)^2.0 - v$z^2.0) / v$v)
+                    return(x + 0.5 * (qnorm(prob)^2.0 - v$z^2.0) / v$v)
                 }
             }
             varu <- function(prob, n = 4L) {
@@ -30,11 +30,11 @@ saddlepointVaru <- function(process, type = 2L) {
                     return(adjcoef(process) * (1.0 + 1.0 / log(prob)))
                 } else {
                     if (i == 1L) {
-                        div <- stats::qexp(prob, adjcoef(process), lower.tail = FALSE)
+                        div <- qexp(prob, adjcoef(process), lower.tail = FALSE)
                     } else {
                         div <- x * KL.d2(x)
                     }
-                    return(x + 0.5 * (stats::qnorm(prob)^2.0 - zv(x)^2.0) / div)
+                    return(x + 0.5 * (qnorm(prob)^2.0 - zv(x)^2.0) / div)
                 }
             }
             varu <- function(prob, n = 4L) {

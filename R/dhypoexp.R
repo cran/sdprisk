@@ -5,7 +5,7 @@ dhypoexp <- function(x, rate = 1.0, log = FALSE) {
 
     res <- drop(tcrossprod(outer(X   = x,
                                  Y   = rate,
-                                 FUN = stats::dexp,
+                                 FUN = dexp,
                                  log = FALSE),
                            t(ratetoalpha(rate))))
 

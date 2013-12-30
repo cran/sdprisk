@@ -7,7 +7,7 @@ saddlepointSensitivity <- function(process, ...) {
 
     return(list(varu.sens  = function(prob, normalize = TRUE) {
                     v <- attr(varu(prob), 'saddlepoint')
-                    return(-ifelse(normalize, const, 1.0) * sqrt(process[['KL.d2']](v)) / stats::dnorm(process[['rv']](v)))
+                    return(-ifelse(normalize, const, 1.0) * sqrt(process[['KL.d2']](v)) / dnorm(process[['rv']](v)))
                 },
                 tvaru.sens = function(prob) {
                     return((varu(prob) - tvaru(prob)) / prob)

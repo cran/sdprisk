@@ -8,7 +8,7 @@ phypoexp <- function(q, rate = 1.0, lower.tail = TRUE, log.p = FALSE, tailarea =
 
     res <- drop(tcrossprod(outer(X          = q,
                                  Y          = rate,
-                                 FUN        = stats::pexp,
+                                 FUN        = pexp,
                                  lower.tail = lower.tail,
                                  log.p      = FALSE),
                            t(mycoef)))

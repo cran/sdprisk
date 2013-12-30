@@ -16,14 +16,14 @@ riskproc <- function(claims, premium, freq, variance) {
             freq * claims$mgf(x) + 0.5 * variance * x^2.0 - premium * x - freq
         }
         # Find the largest root to get an upper bound of the interval
-        adjcoef <- max(rootSolve::uniroot.all(f     = mgfMaxAggregateLoss,
-                                              lower = .Machine$double.eps^0.25,
-                                              upper = 1.0e+8))
+        adjcoef <- max(uniroot.all(f     = mgfMaxAggregateLoss,
+                                   lower = .Machine$double.eps^0.25,
+                                   upper = 1.0e+8))
         # Find the smallest non-zero root with high accuracy
-        adjcoef <- min(rootSolve::uniroot.all(f     = mgfMaxAggregateLoss,
-                                              lower = .Machine$double.eps^0.25,
-                                              upper = adjcoef + 1.0,
-                                              n     = 1.0e+5))
+        adjcoef <- min(uniroot.all(f     = mgfMaxAggregateLoss,
+                                   lower = .Machine$double.eps^0.25,
+                                   upper = adjcoef + 1.0,
+                                   n     = 1.0e+5))
     }
 
     mgf    <- claims$mgf
@@ -66,7 +66,7 @@ riskproc <- function(claims, premium, freq, variance) {
                         mgf.x) / x
 
                 mynan      <- (is.infinite(res) | is.nan(res) | almost.equal(x, 0.0))
-                res[mynan] <- numDeriv::grad(KL, x[mynan])
+                res[mynan] <- grad(KL, x[mynan])
                 return(unlist(res))
             }
 
@@ -93,7 +93,7 @@ riskproc <- function(claims, premium, freq, variance) {
                                * mgf.x)^2.0 / x^2.0)
 
                     mynan      <- (is.infinite(res) | is.nan(res) | almost.equal(x, 0.0))
-                    res[mynan] <- numDeriv::grad(KL.d1, x[mynan])
+                    res[mynan] <- grad(KL.d1, x[mynan])
                     return(unlist(res))
                 }
 
@@ -114,7 +114,7 @@ riskproc <- function(claims, premium, freq, variance) {
 
         vx <- function(x, vmin = -1.0e+64, vmax = adjcoef - .Machine$double.eps^0.65) {
 
-            res <- Map(f        = stats::optim,
+            res <- Map(f        = optim,
                        arg      = x,
                        MoreArgs = list(par     = -1.0,
                                        fn      = function(y, arg) KL(y) - y * arg,

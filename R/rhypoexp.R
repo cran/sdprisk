@@ -3,7 +3,7 @@ rhypoexp <- function(n = 1L, rate = 1.0) {
         n <- nlen
     }
     rowSums(matrix(vapply(X         = rate,
-                          FUN       = stats::rexp,
+                          FUN       = rexp,
                           FUN.VALUE = numeric(n),
                           n         = n),
                    nrow = n,

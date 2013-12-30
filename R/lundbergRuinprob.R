@@ -13,13 +13,13 @@ lundbergRuinprob <- function(process, use.factor = FALSE) {
 
         if (!is.null(.pdf)) {
             const <- process[['p']] / (myadj * (process[['q']] / mean(process[['claims']]) *
-                      stats::integrate(f = function(.x) {
-                                            .res <- .pdf(.x) * .x * exp(.x * myadj)
-                                            .res[which(is.nan(.res))] <- 0.0
-                                            return(.res)
-                                       },
-                                       lower = 0.0,
-                                       upper = Inf)$value
+                      integrate(f = function(.x) {
+                                    .res <- .pdf(.x) * .x * exp(.x * myadj)
+                                    .res[which(is.nan(.res))] <- 0.0
+                                    return(.res)
+                                },
+                                lower = 0.0,
+                                upper = Inf)$value
                       + 1.0 / process[['zeta']]
                       ))
         } else {
