@@ -4,10 +4,11 @@ citEntry(header      = paste('To cite package', sQuote('sdprisk'), 'in publicati
          author      = personList(person('Benjamin', 'Baumgartner'),
                                   person('Riccardo', 'Gatto')),
          journal     = 'Methodology and Computing in Applied Probability',
-         volume      = NA_integer_,
-         number      = NA_integer_,
-         year        = 2013L,
-         pages       = NA_character_,
-         textVersion = 'Baumgartner, B. and Gatto, R. (2013).  Value at Ruin and Tail Value at Ruin of
+         volume      = 16L,
+         number      = 3L,
+         year        = 2014L,
+         pages       = '561--582',
+         doi         = '10.1007/s11009-012-9316-5',
+         textVersion = 'Baumgartner, B. and Gatto, R. (2014).  Value at Ruin and Tail Value at Ruin of
                         the Compound Poisson Process with Diffusion and Efficient Computational
                         Methods.')

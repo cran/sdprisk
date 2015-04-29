@@ -60,8 +60,7 @@ boundsRuinprob <- function(process, interval, maxreserve, richardson = TRUE, use
              fl         = double(n + 3L),
              fu         = double(n + 3L),
              lowerbound = double(n + 3L),
-             upperbound = double(n + 3L),
-             DUP        = FALSE)
+             upperbound = double(n + 3L))
 
     ns <- seq_len(n)
 

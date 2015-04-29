@@ -1,8 +1,8 @@
-0949b6eb82aaf1f7a805ba1675ff56bc *DESCRIPTION
+ea51ddb06cc7b9c3036211281b81d28a *DESCRIPTION
 85bffc40e76abdb7207fd9fa36c94917 *NAMESPACE
 3c67c2545ae22ea51ca2216c71675b21 *R/adjcoef.R
 314f9fb6b60677fa157ab45e5ddb861f *R/almost.equal.R
-6ac1782a2dad73511c54ee3323eb441f *R/boundsRuinprob.R
+761629656f78104521ca737ac153e6d6 *R/boundsRuinprob.R
 4c0fd64ee06a049d618b17fde29b8424 *R/cgfhypoexp.R
 a62cd45d8fb86f4329600eaf1bd43ed2 *R/claiminfo.R
 fe5e4b3d3ede9a316040b0e0dd62a146 *R/dhypoexp.R
@@ -19,8 +19,9 @@ dba47a982bcffdc93acdfc60c0ea9003 *R/lundbergRuinprob.R
 fd85ecc26d3cc5ab3bf7c9af177c2788 *R/mean.claiminfo.R
 11048d0bfdae9ba9a3542aae396cfb8d *R/mgfhypoexp.R
 5557bad0dfcb47a50fbfa564ed17a499 *R/phypoexp.R
+d51e6ba893216838e14a6a27dd1245a7 *R/qhypoexp.R
 c9585bba34e84ee2e9f5fb6fbec785db *R/ratetoalpha.R
-61cef16ee9eb2d39b6a1b9f0c4a970c4 *R/rhypoexp.R
+8800806aa5515d02120beddaf804e45f *R/rhypoexp.R
 d9a5439e6d10724e7a06ca429b180434 *R/riskproc.R
 b48c05d36a1651594eeb9f2a98e5b79b *R/ruinprob.R
 387b4dd22ee62ef9d1b1c29ed3e37d9c *R/saddlepointRuinprob.R
@@ -31,10 +32,10 @@ c6aa8f65857b6746969ddfd3b3f765d2 *R/saddlepointVaru.R
 a487d07b0886c45af04299c6e8ebbfd9 *R/tvaru.R
 86a6e0e221712ffa8f9acebdb5274ab4 *R/varu.R
 a441268dc8b772d8d701e2f5d822176c *README
-269c1c22ce79398695c5617682748820 *inst/CITATION
+1961dc861f53157d08496622eab5c356 *inst/CITATION
 77a3489b5abf938a6988677fb58ef52b *man/adjcoef.Rd
 54308f8e2e3992fc5838401fd16e8465 *man/claiminfo.Rd
-8df21a701b6f7e96d6cfe338eb808f4a *man/hypoexp.Rd
+7699144c22b14d2998cb5da77cb9e54e *man/hypoexp.Rd
 3de0ca39cd0c801ece86ea690090cb86 *man/riskproc.Rd
 cc84999a20627d2f72b2e770795547be *man/ruinprob.Rd
 b40b49b74016ffc3659638e260aff4d5 *man/sensitivity.Rd

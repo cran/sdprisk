@@ -2,6 +2,7 @@
 \alias{phypoexp}
 \alias{dhypoexp}
 \alias{rhypoexp}
+\alias{qhypoexp}
 \alias{mgfhypoexp}
 
 \title{Hypo-Exponential Distribution}
@@ -16,11 +17,13 @@
 dhypoexp(x, rate = 1, log = FALSE)
 phypoexp(q, rate = 1, lower.tail = TRUE, log.p = FALSE, tailarea = FALSE)
 rhypoexp(n = 1, rate = 1)
+qhypoexp(p, rate, interval = c(0.0, 1.0e+10))
 mgfhypoexp(x, rate = 1, difforder = 0)
 }
 
 \arguments{
     \item{x, q}{vector of quantiles.}
+    \item{p}{vector of probabilities.}
     \item{n}{number of observations. If \code{length(n) > 1}, the length is
         taken to be the number required.}
     \item{difforder}{the order of derivative for the moment-generating function;
@@ -33,6 +36,7 @@ mgfhypoexp(x, rate = 1, difforder = 0)
         as \eqn{\log(p)}{log(p)}.}
     \item{tailarea}{logical; if \code{TRUE}, probabilities are given for the
         integrated tail area distribution.}
+    \item{interval}{Passed to \code{\link[stats]{uniroot}}).}
 }
 
 \details{
@@ -43,13 +47,17 @@ mgfhypoexp(x, rate = 1, difforder = 0)
     The hypo-exponential distribution is a generalization of the Erlang
     distribution (a Gamma distribution with an integer-valued shape parameter)
     and a special case of the phase-type distribution (see References section).
+
+    The quantile function is computed by numeric inversion (using
+    \code{\link[stats]{uniroot}}).
 }
 
 \value{
     \code{dhypoexp} gives the density, \code{phypoexp} gives the distribution
     function (or the integrated tail area distribution function),
-    \code{rhypoexp} generates random deviates and \code{mgfhypoexp} gives the
-    moment-generating function (or its derivative up to the second order)
+    \code{qhypoexp} gives the quantile function, \code{rhypoexp} generates
+    random deviates and \code{mgfhypoexp} gives the moment-generating function
+    (or its derivative up to the second order).
 }
 
 \references{
