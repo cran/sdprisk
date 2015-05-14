@@ -8,16 +8,16 @@
 \title{Hypo-Exponential Distribution}
 
 \description{
-    Density, distribution function, random generation and moment-generating
-    function (and its first two derivatives) for the hypo-exponential
-    distribution with rates \code{rate}.
+    Density, distribution function, quantile function, random generation and
+    moment-generating function (and its first two derivatives) for the
+    hypo-exponential distribution with rates \code{rate}.
 }
 
 \usage{
 dhypoexp(x, rate = 1, log = FALSE)
 phypoexp(q, rate = 1, lower.tail = TRUE, log.p = FALSE, tailarea = FALSE)
-rhypoexp(n = 1, rate = 1)
 qhypoexp(p, rate, interval = c(0.0, 1.0e+10))
+rhypoexp(n = 1, rate = 1)
 mgfhypoexp(x, rate = 1, difforder = 0)
 }
 
@@ -36,7 +36,7 @@ mgfhypoexp(x, rate = 1, difforder = 0)
         as \eqn{\log(p)}{log(p)}.}
     \item{tailarea}{logical; if \code{TRUE}, probabilities are given for the
         integrated tail area distribution.}
-    \item{interval}{Passed to \code{\link[stats]{uniroot}}).}
+    \item{interval}{Passed to \code{\link[stats]{uniroot}}.}
 }
 
 \details{
@@ -86,6 +86,9 @@ mu <- mgfhypoexp(0, c(3, 5), difforder = 1)
 
 ## Variance
 mgfhypoexp(0, c(3, 5), difforder = 2) - mu^2
+
+## Quantile
+qhypoexp(0.5, c(3, 5))
 }
 
 \keyword{datagen}

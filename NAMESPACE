@@ -26,6 +26,7 @@ export(
     is.riskproc,
     mgfhypoexp,
     phypoexp,
+    qhypoexp,
     rhypoexp,
     riskproc,
     ruinprob,
