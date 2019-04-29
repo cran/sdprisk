@@ -1,15 +1,15 @@
 hypoexpRuinprob <- function(process) {
     stopifnot(is.hypoexp(process[['claims']]))
 
-    mypoly.factors <- as.polylist(lapply(X   = process[[c('claims', 'hypoexp', 'rates')]],
-                                         FUN = function(arg) {
-                                             c(arg, -1.0)
-                                         }))
+    mypoly.factors <- PolynomF::as_polylist(lapply(X   = process[[c('claims', 'hypoexp', 'rates')]],
+                                                   FUN = function(arg) {
+                                                       c(arg, -1.0)
+                                                   }))
 
 
-    mypoly.rhs <- mean(process[['claims']]) * polynom(c(process[['zeta']], -1.0)) * prod(mypoly.factors)
+    mypoly.rhs <- mean(process[['claims']]) * PolynomF::polynom(c(process[['zeta']], -1.0)) * prod(mypoly.factors)
 
-    mypoly.lhs <- process[['zeta']] * process[['q']] * sum(as.polylist(
+    mypoly.lhs <- process[['zeta']] * process[['q']] * sum(PolynomF::as_polylist(
         lapply(X   = seq_along(mypoly.factors),
                FUN = function(index) {
                    process[[c('claims', 'hypoexp', 'coef')]][index] * prod(mypoly.factors[-index])

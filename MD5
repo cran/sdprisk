@@ -1,5 +1,5 @@
-1d456fcc4449b0429876ab1a7dd7c25b *DESCRIPTION
-8d2a87fd857815558738bd89e55f1186 *NAMESPACE
+bb8aa91607888186ca0c51be38b7c006 *DESCRIPTION
+25c746dd7b61a590ff51f1a88dccadb4 *NAMESPACE
 3c67c2545ae22ea51ca2216c71675b21 *R/adjcoef.R
 314f9fb6b60677fa157ab45e5ddb861f *R/almost.equal.R
 761629656f78104521ca737ac153e6d6 *R/boundsRuinprob.R
@@ -7,7 +7,7 @@
 a62cd45d8fb86f4329600eaf1bd43ed2 *R/claiminfo.R
 fe5e4b3d3ede9a316040b0e0dd62a146 *R/dhypoexp.R
 cff5d32a6be7db19ba4dc1704feb895f *R/fftRuinprob.R
-65bd2085423d7094d0c4c18bb4122297 *R/hypoexpRuinprob.R
+75ea227f9de2d35391d63c704521c1a8 *R/hypoexpRuinprob.R
 dca87f4ee4b7d4d4186494b311137849 *R/hypoexpSensitivity.R
 533439e05f443543e96db03f0c7cacea *R/hypoexpTvaru.R
 b523b46c0ca7e03113d3a69e02e1e55b *R/hypoexpVaru.R
@@ -42,3 +42,4 @@ b40b49b74016ffc3659638e260aff4d5 *man/sensitivity.Rd
 dbbaceb852ca05c9dc9c6cd20735fcc3 *man/tvaru.Rd
 2fdb73b44e395b69901a0c8f8774fd31 *man/varu.Rd
 fd3f1006a67bb66ce23ffb27b7115b7b *src/rpbounds.c
+0b1e7ba5bf2f418b49af79905c1dbf1d *src/sdprisk_init.c

@@ -5,7 +5,7 @@ import(PolynomF)
 importFrom(rootSolve, uniroot.all)
 importFrom(numDeriv, grad)
 
-useDynLib(sdprisk, rpbounds)
+useDynLib(sdprisk, .registration = TRUE)
 
 S3method(mean, claiminfo)
 S3method(is.hypoexp, claiminfo)

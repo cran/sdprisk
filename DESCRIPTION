@@ -1,7 +1,7 @@
 Package: sdprisk
 Type: Package
-Version: 1.1-5
-Date: 2016-12-30
+Version: 1.1-6
+Date: 2019-05-01
 Title: Measures of Risk for the Compound Poisson Risk Process with
         Diffusion
 Authors@R: c(person(given  = 'Benjamin',
@@ -27,11 +27,11 @@ Description: Based on the compound Poisson risk process that is perturbed by
     rate parameters). For more details see Gatto and Baumgartner (2014)
     <doi:10.1007/s11009-012-9316-5>.
 License: AGPL-3
-Imports: numDeriv, PolynomF, rootSolve, utils, stats
+Imports: numDeriv, PolynomF (>= 2.0-0), rootSolve, utils, stats
 NeedsCompilation: yes
-Packaged: 2016-12-30 19:29:28 UTC; benjamin
+Packaged: 2019-04-29 20:31:29 UTC; benjamin
 Author: Benjamin Baumgartner [aut, cre],
   Riccardo Gatto [ctb, ths],
   Sebastian Szugat [ctb]
 Repository: CRAN
-Date/Publication: 2016-12-31 01:41:16
+Date/Publication: 2019-04-29 20:50:03 UTC
